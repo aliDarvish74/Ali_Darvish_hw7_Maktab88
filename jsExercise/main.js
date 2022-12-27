@@ -37,11 +37,11 @@ userData.read = function () {
 };
 
 let createTestObj = {
-  uid: 7,
+  uid: 1,
   firstName: "Ali",
   lastName: "Darvish",
   position: "Back-end Developer",
-  city: "Hamedan",
+  address: "x",
 };
 
 userData.create = function (inputObj) {
@@ -73,7 +73,6 @@ userData.create = function (inputObj) {
     `${inputObj.firstName} ${inputObj.lastName} data created successfuly!`
   );
 };
-
 // userData.create(createTestObj);
 // userData.read();
 
@@ -98,7 +97,7 @@ userData.remove = function (inputUid) {
 };
 
 // userData.create(createTestObj);
-// userData.remove(7);
+// userData.remove(6);
 // userData.read();
 
 // Update property value
@@ -138,12 +137,13 @@ userData.update = function (uid, property, value) {
       temp.push(prop);
     }
   });
-  console.log(objIndex);
+  // console.log(objIndex);
   this[objIndex] = Object.fromEntries(temp);
 };
 
-// userData.update(1, "firstName", "Peyman");
-// userData.read();
+userData.update(1, "firstName", "Peyman");
+userData.read();
+
 let updateTestObj = {
   uid: 8,
   firstName: "Ali",
@@ -151,6 +151,7 @@ let updateTestObj = {
   position: "Back-end Developer",
   city: "Hamedan",
 };
+
 userData.fullUpdate = function (inputObj) {
   if (Object.keys(inputObj).length !== Object.keys(this[0]).length) {
     console.log(new Error("Error: input must have right pattern!"));
@@ -181,5 +182,5 @@ userData.fullUpdate = function (inputObj) {
   this.splice(objIndex, 1, inputObj);
 };
 
-userData.fullUpdate(updateTestObj);
-userData.read();
+// userData.fullUpdate(updateTestObj);
+// userData.read();
